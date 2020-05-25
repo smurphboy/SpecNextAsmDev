@@ -8,14 +8,51 @@
             "type": "shell",
             "command": "~/opt/bin/sjasmplus",
             "args": [
-                "--nobanner",
+                "--nologo",
+                "--zxnext=cspect",
                 "${file}"
             ],
-            "problemMatcher": ["$errmatcher-sjasmplus"],
+            "problemMatcher": [
+                "$errmatcher-sjasmplus"
+            ],
             "group": {
                 "kind": "build",
                 "isDefault": true
             }
+        },
+        {
+            "label": "Run .sna in CSpect",
+            "type": "shell",
+            "command": "mono",
+            "args": [
+                "~/NextBasicDev/CSpect/CSpect.exe",
+                "-sound",
+                "-w3",
+                "-mmc=.\\ ${file}"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Run .nex in CSpect",
+            "type": "shell",
+            "command": "mono",
+            "args": [
+                "~/NextBasicDev/CSpect/CSpect.exe",
+                "-sound",
+                "-w3",
+                "-zxnext",
+                "-nextrom",
+                "-mmc=.\\ ${file}"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": []
         }
     ]
 }
