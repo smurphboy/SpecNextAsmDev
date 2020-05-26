@@ -6,10 +6,22 @@
         {
             "label": "Build with SJasmplus",
             "type": "shell",
-            "command": "~/opt/bin/sjasmplus",
+			"command": "~/opt/bin/sjasmplus",
+			"windows": {
+				"command": "${workspaceFolder}/asm/sjasmplus.exe",
+				"args": [
+					"-nologo",
+					"--lst",
+					"--zxnext=cspect",
+					"--raw=${workspaceFolder}/bin/${fileBasenameNoExtension}.bin",
+					"${file}"
+				]
+			},
             "args": [
-                "--nologo",
-                "--zxnext=cspect",
+		"--nologo",
+		"--lst",
+		"--zxnext=cspect",
+		"--raw=${workspaceFolder}/bin/${fileBasenameNoExtension}.bin",
                 "${file}"
             ],
             "problemMatcher": [
@@ -23,11 +35,21 @@
         {
             "label": "Run .sna in CSpect",
             "type": "shell",
-            "command": "mono",
+			"command": "mono",
+			"windows": {
+				"command": "${workspaceFolder}/../CSpect/CSpect.exe",
+				"args": [
+					"-w4",
+					"-tv",
+					"-basickeys",
+					"-mmc=.\\ ${file}"
+				]
+			},
             "args": [
                 "~/NextBasicDev/CSpect/CSpect.exe",
-                "-sound",
-                "-w3",
+				"-w4",
+				"-tv",
+				"-basickeys",
                 "-mmc=.\\ ${file}"
             ],
             "group": {
@@ -39,13 +61,23 @@
         {
             "label": "Run .nex in CSpect",
             "type": "shell",
-            "command": "mono",
+			"command": "mono",
+			"windows": {
+				"command": "${workspaceFolder}/../CSpect/CSpect.exe",
+				"args": [
+					"-w4",
+					"-tv",
+					"-basickeys",
+					"-zxnext",
+					"-mmc=.\\ ${file}"
+				]
+			},
             "args": [
                 "~/NextBasicDev/CSpect/CSpect.exe",
-                "-sound",
-                "-w3",
+		"-w4",
+		"-tv",
+		"-basickeys",
                 "-zxnext",
-                "-nextrom",
                 "-mmc=.\\ ${file}"
             ],
             "group": {
