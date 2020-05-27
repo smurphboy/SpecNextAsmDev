@@ -1,6 +1,9 @@
 # SpecNextAsmDev
+
 Spectrum Next Assembler Dev space
+
 ## Tasks
+
 1. ~~First step - set up a vscode dev environment~~
 1. ~~Hello world~~
 1. Tile map test
